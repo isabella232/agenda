@@ -63,11 +63,7 @@ export const findAndLockNextJob = async function (
           $or: [
             {
               lockedAt: { $eq: null },
-              nextRunAt: { $lte: new Date() },
-            },
-            {
-              lockedAt: { $exists: false },
-              nextRunAt: { $lte: new Date() },
+              nextRunAt: { $lte: this._nextScanAt },
             },
             {
               lockedAt: { $lte: lockDeadline },
@@ -87,7 +83,7 @@ export const findAndLockNextJob = async function (
      * Query used to affect what gets returned
      * @type {{returnOriginal: boolean, sort: object}}
      */
-    const JOB_RETURN_QUERY = { returnOriginal: false };
+    const JOB_RETURN_QUERY = { returnOriginal: false, sort: this._sort };
 
     // Find ONE and ONLY ONE job and set the 'lockedAt' time so that job begins to be processed
     const result = await this._collection.findOneAndUpdate(
