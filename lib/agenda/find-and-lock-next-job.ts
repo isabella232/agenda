@@ -79,7 +79,7 @@ export const findAndLockNextJob = async function (
      * Query used to affect what gets returned
      * @type {{returnOriginal: boolean, sort: object}}
      */
-    const JOB_RETURN_QUERY = { returnOriginal: false, sort: this._sort };
+    const JOB_RETURN_QUERY = { returnOriginal: false };
 
     // Find ONE and ONLY ONE job and set the 'lockedAt' time so that job begins to be processed
     const result = await this._collection.findOneAndUpdate(
