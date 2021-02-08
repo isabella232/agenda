@@ -59,7 +59,7 @@ export const findAndLockNextJob = async function (
           name: jobName,
           disabled: { $ne: true },
           lockedAt: { $eq: null },
-          nextRunAt: { $lte: this._nextScanAt },
+          nextRunAt: { $lte: new Date() },
         },
         {
           name: jobName,
