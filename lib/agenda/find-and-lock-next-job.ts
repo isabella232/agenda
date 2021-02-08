@@ -54,21 +54,17 @@ export const findAndLockNextJob = async function (
     // * @type {{$and: [*]}}
     // */
     const JOB_PROCESS_WHERE_QUERY = {
-      $and: [
+      $or: [
         {
           name: jobName,
           disabled: { $ne: true },
+          lockedAt: { $eq: null },
+          nextRunAt: { $lte: this._nextScanAt },
         },
         {
-          $or: [
-            {
-              lockedAt: { $eq: null },
-              nextRunAt: { $lte: this._nextScanAt },
-            },
-            {
-              lockedAt: { $lte: lockDeadline },
-            },
-          ],
+          name: jobName,
+          disabled: { $ne: true },
+          lockedAt: { $lte: lockDeadline },
         },
       ],
     };
