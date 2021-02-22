@@ -147,11 +147,11 @@ class Agenda extends EventEmitter {
     this._sort = config.sort || { nextRunAt: 1, priority: -1 };
     this._indices = {
       name: 1,
+      disabled: 1,
       ...this._sort,
-      priority: -1,
       lockedAt: 1,
       nextRunAt: 1,
-      disabled: 1,
+      priority: -1,
     };
 
     this._isLockingOnTheFly = false;
