@@ -62,7 +62,7 @@ export const findAndLockNextJob = async function (
         {
           $or: [
             {
-              lockedAt: { $eq: null },
+              lockedAt: { $type: 10 },
               nextRunAt: { $lte: this._nextScanAt },
             },
             {
