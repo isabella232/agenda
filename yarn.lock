@@ -1139,10 +1139,10 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-human-interval@~2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/human-interval/-/human-interval-2.0.0.tgz#a9f4cedf4544005398c39767a484fdf062f4287a"
-  integrity sha512-r9qKIElAPkR4+uKSY2T7ImenvKItsLhT2Rm3OmFbA0pBt44YC8mWBpSFsnAbHnVs2D47hm0GquhpCjN+yjR24g==
+human-interval@~2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/human-interval/-/human-interval-2.0.1.tgz#655baf606c7067bb26042dcae14ec777b099af15"
+  integrity sha512-r4Aotzf+OtKIGQCB3odUowy4GfUDTy3aTWTfLd7ZF2gBCy3XW3v/dJLRefZnOFFnjqs5B1TypvS8WarpBkYUNQ==
   dependencies:
     numbered "^1.1.0"
 
